@@ -95,6 +95,10 @@
             border-collapse: collapse;
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
+            /* Ensure table doesn't overflow on small screens */
+            display: block; /* Allows overflow-x-auto to work */
+            overflow-x: auto; /* Adds horizontal scroll if content is too wide */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
         .acceptance-table th, .acceptance-table td {
             border: 1px solid #cbd5e1;
@@ -106,6 +110,10 @@
             background-color: #e2e8f0;
             font-weight: bold;
             color: #475569;
+            white-space: nowrap; /* Prevent header text from wrapping */
+        }
+        .acceptance-table td {
+            white-space: normal; /* Allow content to wrap */
         }
         .acceptance-table tr:nth-child(even) {
             background-color: #f8fafc;
@@ -129,7 +137,7 @@
             深入學習成本控制與採購管理的核心概念及實務流程
         </p>
         <nav class="mt-6">
-            <ul class="flex justify-center space-x-4 text-lg font-medium">
+            <ul class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 text-base sm:text-lg font-medium">
                 <li><a href="#cost-classification" class="nav-link">成本分類基礎</a></li>
                 <li><a href="#key-formulas" class="nav-link">重要公式與計算</a></li>
                 <li><a href="#quiz-section" class="nav-link">成本控制小測驗</a></li>
@@ -143,7 +151,7 @@
             <h2 class="text-3xl font-bold text-blue-700 mb-4 pb-2 border-b-2 border-blue-300">
                 成本分類基礎
             </h2>
-            <p class="text-lg leading-relaxed">
+            <p class="text-base sm:text-lg leading-relaxed">
                 在成本控制中，理解不同類型的成本是至關重要的第一步。它們在決策、預算和績效評估中扮演著不同的角色。以下我們將詳細探討固定成本、變動成本和半變動成本。
             </p>
         </section>
@@ -152,7 +160,7 @@
             <h2 class="text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-300">
                 固定成本 (Fixed Costs)
             </h2>
-            <div class="text-lg leading-relaxed">
+            <div class="text-base sm:text-lg leading-relaxed">
                 <p class="mb-4">
                     固定成本是指在一定相關範圍和一定時期內，其總額不隨業務量變動而變動的成本。即使業務量為零，固定成本也依然存在。然而，單位產品的固定成本會隨著業務量的增加而減少。
                 </p>
@@ -169,7 +177,7 @@
             <h2 class="text-2xl font-semibold text-green-800 mb-4 pb-2 border-b border-green-300">
                 變動成本 (Variable Costs)
             </h2>
-            <div class="text-lg leading-relaxed">
+            <div class="text-base sm:text-lg leading-relaxed">
                 <p class="mb-4">
                     變動成本是指其總額隨業務量變動而呈同方向變動的成本，但單位產品的變動成本在一定相關範圍內保持不變。業務量增加，變動成本總額也增加；業務量減少，變動成本總額也減少。
                 </p>
@@ -186,7 +194,7 @@
             <h2 class="text-2xl font-semibold text-purple-800 mb-4 pb-2 border-b border-purple-300">
                 半變動成本 (Semi-Variable Costs / Mixed Costs)
             </h2>
-            <div class="text-lg leading-relaxed">
+            <div class="text-base sm:text-lg leading-relaxed">
                 <p class="mb-4">
                     半變動成本（或稱混合成本）是指同時包含固定成本和變動成本性質的成本。它有一個固定的基礎部分，在此基礎上，隨著業務量的增加而增加。
                 </p>
@@ -203,7 +211,7 @@
             <h2 class="text-3xl font-bold text-yellow-700 mb-4 pb-2 border-b-2 border-yellow-300">
                 重要公式與計算
             </h2>
-            <div class="text-lg leading-relaxed">
+            <div class="text-base sm:text-lg leading-relaxed">
                 <p class="mb-4">
                     在成本控制中，理解並應用關鍵公式是進行分析和決策的基礎。以下是其中幾個核心的公式：
                 </p>
@@ -330,7 +338,7 @@
                 <h3 class="text-2xl font-semibold text-yellow-700 mt-8 mb-3 pb-1 border-b border-yellow-300">
                     成本-數量-利潤 (CVP) 分析圖
                 </h3>
-                <p class="text-lg leading-relaxed mb-4">
+                <p class="text-base sm:text-lg leading-relaxed mb-4">
                     此圖表視覺化呈現牛肉麵店的成本、收入與利潤關係，並標示損益平衡點，幫助您直觀理解各項要素的互動。
                 </p>
                 <canvas id="cvpChart"></canvas>
@@ -341,7 +349,7 @@
             <h2 class="text-3xl font-bold text-blue-700 mb-4 pb-2 border-b-2 border-blue-300">
                 成本控制小測驗
             </h2>
-            <p class="text-lg leading-relaxed mb-6">
+            <p class="text-base sm:text-lg leading-relaxed mb-6">
                 現在，讓我們來練習一下！請根據以下咖啡店的數據，計算出各項指標。
             </p>
 
@@ -356,26 +364,26 @@
             </div>
 
             <div class="mb-4">
-                <label for="quizUnitCM" class="block text-lg font-medium text-gray-700">1. 單位邊際貢獻 (元/杯)：</label>
+                <label for="quizUnitCM" class="block text-base sm:text-lg font-medium text-gray-700">1. 單位邊際貢獻 (元/杯)：</label>
                 <input type="number" id="quizUnitCM" class="quiz-input" placeholder="請輸入您的答案">
             </div>
 
             <div class="mb-4">
-                <label for="quizFixedCost" class="block text-lg font-medium text-gray-700">2. 固定成本 (元)：</label>
+                <label for="quizFixedCost" class="block text-base sm:text-lg font-medium text-gray-700">2. 固定成本 (元)：</label>
                 <input type="number" id="quizFixedCost" class="quiz-input" placeholder="請輸入您的答案">
             </div>
 
             <div class="mb-4">
-                <label for="quizBepUnits" class="block text-lg font-medium text-gray-700">3. 損益平衡點 (杯數)：</label>
+                <label for="quizBepUnits" class="block text-base sm:text-lg font-medium text-gray-700">3. 損益平衡點 (杯數)：</label>
                 <input type="number" id="quizBepUnits" class="quiz-input" placeholder="請輸入您的答案">
             </div>
 
             <div class="mb-6">
-                <label for="quizContributionMarginRatio" class="block text-lg font-medium text-gray-700">4. 邊際貢獻率 (請輸入小數，例如 0.75)：</label>
+                <label for="quizContributionMarginRatio" class="block text-base sm:text-lg font-medium text-gray-700">4. 邊際貢獻率 (請輸入小數，例如 0.75)：</label>
                 <input type="number" step="0.01" id="quizContributionMarginRatio" class="quiz-input" placeholder="請輸入您的答案">
             </div>
 
-            <div class="flex space-x-4">
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                 <button id="checkQuizAnswers" class="quiz-button">檢查答案</button>
                 <button id="refreshQuiz" class="quiz-button bg-gray-500 hover:bg-gray-600">刷新測驗</button>
             </div>
@@ -387,7 +395,7 @@
             <h2 class="text-3xl font-bold text-indigo-700 mb-4 pb-2 border-b-2 border-indigo-300">
                 採購管理實務
             </h2>
-            <div class="text-lg leading-relaxed">
+            <div class="text-base sm:text-lg leading-relaxed">
                 <p class="mb-4">
                     採購管理是企業營運中至關重要的一環，它直接影響著成本、品質和供應鏈的效率。有效的採購管理不僅能降低成本，還能確保物料供應的穩定性，提升企業的整體競爭力。
                 </p>
@@ -441,7 +449,6 @@
                         <p class="ml-4">
                             採購部需將第一聯（通常是請購單或驗收單）和發票向應付帳款組請款，以補足週轉金。這確保了資金的流動性和透明度，並完成了採購的財務閉環。
                         </p>
-                    </p>
                     </li>
                 </ol>
                 <p class="mt-4 italic text-indigo-600">
@@ -538,16 +545,16 @@
                 <p class="mb-4">
                     所有採購物品都必須辦理驗收手續，以確保所收到的貨品符合訂單要求和品質標準。
                 </p>
-                <p class="font-bold text-lg mb-2">
+                <p class="font-bold text-base sm:text-lg mb-2">
                     (一) 驗收的程序
                 </p>
-                <ul class="list-decimal list-inside ml-4 space-y-1 mb-4">
+                <ul class="list-decimal list-inside ml-4 space-y-1 mb-4 text-base sm:text-lg">
                     <li>驗收單位成立：公司可以成立一個專門的驗收單位，或指定相關部門人員負責驗收工作。</li>
                     <li>聯合驗收原則：原則上，驗收組應與採購部門共同辦理驗收手續。</li>
                     <li>驗收內容：驗收內容包括但不限於：數量清點、規格核對、品質檢查（外觀、包裝、效期等），並與相關文件進行比對。</li>
                 </ul>
 
-                <p class="font-bold text-lg mb-2">
+                <p class="font-bold text-base sm:text-lg mb-2">
                     (二) 各類別食品驗收程序細則
                 </p>
                 <table class="acceptance-table">
@@ -661,7 +668,8 @@
                 const bepRevenue = bepUnits * unitPrice;
 
                 // 圖表參數
-                const padding = 60;
+                // 調整 padding 為響應式
+                let padding;
                 let chartWidth, chartHeight, xScale, yScale;
 
                 const maxUnits = Math.ceil(bepUnits * 2.5 / 100) * 100;
@@ -671,7 +679,9 @@
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     const containerWidth = canvas.parentElement.clientWidth;
                     canvas.width = containerWidth;
-                    canvas.height = containerWidth * (2 / 3);
+                    canvas.height = containerWidth * (2 / 3); // 維持 3:2 的比例
+
+                    padding = canvas.width * 0.08; // 8% 的寬度作為 padding
 
                     chartWidth = canvas.width - 2 * padding;
                     chartHeight = canvas.height - 2 * padding;
@@ -679,6 +689,7 @@
                     xScale = chartWidth / maxUnits;
                     yScale = chartHeight / maxRevenue;
 
+                    // 繪製座標軸
                     ctx.beginPath();
                     ctx.strokeStyle = '#334155';
                     ctx.lineWidth = 2;
@@ -687,6 +698,7 @@
                     ctx.lineTo(canvas.width - padding, canvas.height - padding);
                     ctx.stroke();
 
+                    // 箭頭
                     ctx.fillStyle = '#334155';
                     ctx.beginPath();
                     ctx.moveTo(padding, padding);
@@ -700,7 +712,8 @@
                     ctx.lineTo(canvas.width - padding - 10, canvas.height - padding + 5);
                     ctx.fill();
 
-                    ctx.font = '16px Inter';
+                    // 座標軸標籤
+                    ctx.font = '14px Inter'; // 調整字體大小
                     ctx.fillStyle = '#334155';
                     ctx.textAlign = 'center';
                     ctx.fillText('數量', canvas.width - padding / 2, canvas.height - padding / 2);
@@ -710,7 +723,8 @@
                     ctx.fillText('金額', 0, 0);
                     ctx.restore();
 
-                    ctx.font = '12px Inter';
+                    // 刻度標籤
+                    ctx.font = '10px Inter'; // 調整字體大小
                     ctx.fillStyle = '#64748b';
 
                     for (let i = 0; i <= maxUnits; i += 50) {
@@ -736,6 +750,7 @@
                     }
                     ctx.textAlign = 'center';
 
+                    // 固定成本線
                     ctx.beginPath();
                     ctx.strokeStyle = '#ef4444';
                     ctx.lineWidth = 2;
@@ -746,6 +761,7 @@
                     ctx.fillStyle = '#ef4444';
                     ctx.fillText('固定成本 (FC)', padding + chartWidth / 2, fcY - 10);
 
+                    // 收入線
                     ctx.beginPath();
                     ctx.strokeStyle = '#22c55e';
                     ctx.lineWidth = 2;
@@ -755,6 +771,7 @@
                     ctx.fillStyle = '#22c55e';
                     ctx.fillText('收入', padding + maxUnits * xScale - 30, canvas.height - padding - (unitPrice * maxUnits) * yScale - 10);
 
+                    // 總成本線
                     ctx.beginPath();
                     ctx.strokeStyle = '#f97316';
                     ctx.lineWidth = 2;
@@ -764,6 +781,7 @@
                     ctx.fillStyle = '#f97316';
                     ctx.fillText('總成本', padding + maxUnits * xScale - 30, canvas.height - padding - (fixedCost + unitVariableCost * maxUnits) * yScale + 20);
 
+                    // 損益平衡點
                     const bepX = padding + bepUnits * xScale;
                     const bepY = canvas.height - padding - bepRevenue * yScale;
 
@@ -783,11 +801,12 @@
                     ctx.arc(bepX, bepY, 5, 0, 2 * Math.PI);
                     ctx.fill();
 
-                    ctx.font = '14px Inter';
+                    ctx.font = '12px Inter'; // 調整字體大小
                     ctx.textAlign = 'left';
                     ctx.fillText(`BEP (${Math.round(bepUnits)} 碗, ${Math.round(bepRevenue)} 元)`, bepX + 10, bepY - 10);
                     ctx.textAlign = 'center';
 
+                    // 利潤區
                     ctx.fillStyle = 'rgba(34, 197, 94, 0.1)';
                     ctx.beginPath();
                     ctx.moveTo(bepX, bepY);
@@ -796,9 +815,10 @@
                     ctx.closePath();
                     ctx.fill();
                     ctx.fillStyle = '#22c55e';
-                    ctx.font = '12px Inter';
+                    ctx.font = '10px Inter'; // 調整字體大小
                     ctx.fillText('利潤區', bepX + (maxUnits - bepUnits) * xScale / 2, bepY + (unitPrice * (maxUnits - bepUnits) - (fixedCost + unitVariableCost * maxUnits - bepRevenue)) * yScale / 2 - 20);
 
+                    // 虧損區
                     ctx.fillStyle = 'rgba(239, 68, 68, 0.1)';
                     ctx.beginPath();
                     ctx.moveTo(padding, fcY);
